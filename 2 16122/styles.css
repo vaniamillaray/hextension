@@ -1,0 +1,54 @@
+/* Configuración básica para diseño responsivo */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#ruleta {
+  width: 90%; /* Utiliza un ancho relativo para adaptarse a diferentes tamaños */
+  max-width: 400px; /* Máximo ancho para móviles */
+  aspect-ratio: 9 / 16; /* Mantener proporción vertical 9:16 */
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #000;
+}
+
+.slot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.slot.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 768px) {
+  #ruleta {
+    max-width: 500px; /* Ajusta el tamaño máximo para tablets y dispositivos grandes */
+  }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  #ruleta {
+    max-width: 100%; /* Utiliza todo el ancho disponible */
+    border-width: 1px; /* Reduce el grosor del borde */
+  }
+}
